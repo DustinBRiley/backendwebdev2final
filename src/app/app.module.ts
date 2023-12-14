@@ -8,6 +8,7 @@ import { ShopComponent } from './components/shop/shop.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HeaderComponent } from './components/header/header.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
