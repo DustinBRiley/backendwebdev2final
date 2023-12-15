@@ -8,6 +8,7 @@ import { ItemService } from '../../services/item.service';
   styleUrl: './shop.component.css'
 })
 export class ShopComponent {
+  cart: [] = []
   items: Item[] = []
   item: any = {
     _id: '',
