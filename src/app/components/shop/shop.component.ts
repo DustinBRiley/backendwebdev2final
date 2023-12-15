@@ -35,7 +35,7 @@ export class ShopComponent {
     if(id) {
       this.itemService.getItems().subscribe((itemData) => {
         this.item = itemData
-        console.log(itemData)
+        return(itemData)
       })
     } else {
       console.log('Item id is undefined')
