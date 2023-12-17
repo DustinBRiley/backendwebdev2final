@@ -8,14 +8,14 @@ import { Item } from '../model/item/item.model';
 })
 export class ItemService {
   private apiUrl = 'http://localhost:3000/items'
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   //Get Items
   getItems(): Observable<Item[]> {
     return this.http.get<Item[]>(`${this.apiUrl}`)
   }
   //Get Item
   getItem(id: string): Observable<Item> {
-    return this.http.get<Item>(`${this.apiUrl}`)
+    return this.http.get<Item>(`${this.apiUrl}/${id}`)
   }
   //Update Item
   updateItem(item: Item): Observable<Item> {

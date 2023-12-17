@@ -15,13 +15,22 @@ export class ShopComponent {
     name: '',
     price: ''
   }
+  first: string[]=[]
+  last: string[]=[]
 
-  constructor(private itemService: ItemService) {}
+  constructor(private itemService: ItemService) {
+    console.log(this.items)
+  }
 
   ngOnInit(): void {
     this.itemService.getItems().subscribe((data: any) => {
       this.items = data as Item[]
     })
+    for (let x=0;x<this.items.length;x++) {
+      let y = this.items[x].name.split(" ")
+      this.first[x] = y[0]
+      this.last[x] = y[1]
+    }
   }
 
   // Updated Data
@@ -29,14 +38,18 @@ export class ShopComponent {
     this.itemService.getItems().subscribe((data: any) => {
       this.items = data
     })
+    for (let x=0;x<this.items.length;x++) {
+      let y = this.items[x].name.split(" ")
+      this.first[x] = y[0]
+      this.last[x] = y[1]
+    }
   }
 
   // Get Item
   getItem(id: string) {
     if(id) {
-      this.itemService.getItems().subscribe((itemData) => {
+      this.itemService.getItem(id).subscribe((itemData) => {
         this.item = itemData
-        return(itemData)
       })
     } else {
       console.log('Item id is undefined')
@@ -66,5 +79,10 @@ export class ShopComponent {
       console.log('Item deleted: ', response)
       this.loadItems()
     })
+  }
+
+  // add to cart
+  addCart() {
+    
   }
 }
